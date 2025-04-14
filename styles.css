@@ -1,0 +1,333 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global Variables */
+:root {
+  --primary-color: #121212;
+  --secondary-color: #1d1d1d;
+  --highlight-color: #ff4081;
+  --text-color: #e0e0e0;
+  --accent-color: #ffbc00;
+  --shadow-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Body */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  color: #121212;
+  transition: all 0.3s ease;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+/* Hamburger Menu Button */
+
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+
+
+/* General Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1e1e1e;
+  padding: 1rem 2rem;
+  color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ff9800;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #ff9800;
+}
+
+/* Mobile View with Smooth Transition */
+@media (max-width: 768px) {
+  .nav-links {
+    
+    text-align: center;
+    max-height: 0; /* Initially collapsed */
+    overflow: hidden; /* Hide overflowing content */
+    flex-direction: column;
+    gap: 1rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #1e1e1e;
+    width: 100%;
+    padding: 0; /* No padding when collapsed */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: max-height 0.5s ease, padding 0.5s ease; /* Smooth dropdown */
+  }
+
+  .nav-links.active {
+    max-height: 300px; /* Expanded height */
+    padding: 1rem 0; /* Add padding when expanded */
+  }
+
+  .menu-toggle {
+    display: block;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .menu-toggle:focus {
+    outline: none;
+  }
+  
+}
+
+
+
+/* Articles Section */
+.articles-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.article-card {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  border-radius: 10px;
+  box-shadow: 0 8px 20px var(--shadow-color);
+  max-width: 350px;
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.article-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px var(--shadow-color), 0 0 20px var(--highlight-color);
+  animation: glowCard 1.5s infinite alternate;
+}
+
+.article-card h3 {
+  font-size: 1.5rem;
+  color: var(--highlight-color);
+  margin-bottom: 1rem;
+}
+
+.article-card p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.article-card a {
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: var(--accent-color);
+  transition: color 0.3s ease;
+}
+
+.article-card a:hover {
+  color: var(--highlight-color);
+}
+
+/* Glowing Animation */
+@keyframes glowCard {
+  from {
+    box-shadow: 0 0 15px var(--highlight-color);
+  }
+  to {
+    box-shadow: 0 0 25px var(--accent-color);
+  }
+}
+
+/* Footer with About Section */
+footer {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.footer-about-container {
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+  text-align: center;
+  line-height: 1.8;
+}
+
+.footer-about-container h2 {
+  font-size: 2rem;
+  color: var(--highlight-color);
+  margin-bottom: 1rem;
+}
+
+.footer-about-container p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.footer-end {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  border-top: 1px solid var(--highlight-color);
+  padding-top: 1rem;
+  color: var(--text-color);
+}
+
+footer:hover {
+  animation: glowFooter 1.5s infinite alternate;
+}
+
+@keyframes glowFooter {
+  from {
+    box-shadow: 0 0 15px var(--highlight-color);
+  }
+  to {
+    box-shadow: 0 0 25px var(--accent-color);
+  }
+}
+/* Article Content */
+
+.article-content {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+  color: var(--text-color);
+  box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+.article-content h1 {
+  color: var(--highlight-color);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.article-content p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.back-btn {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--accent-color);
+  font-size: 1.2rem;
+  margin-top: 2rem;
+}
+
+.back-btn:hover {
+  color: var(--highlight-color);
+}
+/* Contact Form Container */
+.contact-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+  box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+.contact-container h1 {
+  color: var(--highlight-color);
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.contact-container label {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.contact-container input[type="text"],
+.contact-container input[type="email"],
+.contact-container textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  font-size: 1rem;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+
+.contact-container input[type="submit"] {
+  background-color: var(--highlight-color);
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+.contact-container input[type="submit"]:hover {
+  background-color: var(--accent-color);
+}
